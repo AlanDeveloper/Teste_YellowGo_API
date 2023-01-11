@@ -51,6 +51,8 @@ class Controller extends BaseController
                     "cidade" => $cep == "1" ? "Pelotas" : null,
                     "viabilidade" => rand(0, 1) == "1" ? rand(0, 2) : null,
                     "observacao" => null,
+                    "faturas" => rand(0, 1) == "1" ? true : false,
+                    "oridem_de_informação" => "API"
                 ));
             }
         } catch (\Exception $e) {

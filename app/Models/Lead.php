@@ -29,6 +29,9 @@ class Lead extends Model
         'status',
         'responsavel_id',
         'latitude',
-        'longitude'
+        'longitude',
+        'plano_de_interesse',
+        'faturas',
+        'origem_de_informacao'
     ];
 }
