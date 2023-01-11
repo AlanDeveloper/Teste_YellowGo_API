@@ -16,7 +16,8 @@ class Controller extends BaseController
     public function cadastrar_lead(Request $request)
     {
         try {
-            Lead::create($request->all());
+            $lead = Lead::create($request->all());
+            Lead::where('id', $lead->id)->delete();
         } catch (\Exception $e) {
             return response()->json(array(
                 'status' => 'erro',
