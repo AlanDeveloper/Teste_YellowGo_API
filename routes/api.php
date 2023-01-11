@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware('api_token')->group(function () {
+
+    Route::post('/cadastrar_lead', [Controller::class, 'cadastrar_lead'])->name('cadastrar_lead');
+    Route::get('/gerar_leads', [Controller::class, 'gerar_leads'])->name('gerar_leads');
+    Route::get('/pegar_leads', [Controller::class, 'pegar_leads'])->name('pegar_leads');
 });
