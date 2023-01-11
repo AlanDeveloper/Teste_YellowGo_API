@@ -72,6 +72,9 @@ class Controller extends BaseController
     {
         try {
             $leads = Lead::where('status', 4)->limit(5)->orderBy('id', 'desc')->get();
+            foreach ($leads as $lead) {
+                Lead::where('id', $lead->id)->delete();
+            }
         } catch (\Exception $e) {
             return response()->json(
                 array(
@@ -205,11 +208,11 @@ class Controller extends BaseController
     protected function random_email()
     {
         $emails = [
-            'te@gmail.com',
-            'bigfe@gmail.com',
-            'tempo10@gmail.com',
-            'ilhaDg@hotmail.com',
-            'ilhaDg@hotmail.com',
+            'te' . rand(0, 50000) . '@gmail.com',
+            'bigfe' . rand(0, 50000) . '@gmail.com',
+            'tempo10' . rand(0, 50000) . '@gmail.com',
+            'ilhaDg' . rand(0, 50000) . '@hotmail.com',
+            'ilhaDg' . rand(0, 50000) . '@hotmail.com',
         ];
 
         return $emails[rand(0, count($emails) - 1)];
